@@ -1,0 +1,60 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" 
+	xmlns:l="sap.ui.layout"
+	xmlns:c="sap.ui.core" controllerName="com.lbrands.managefieldsManageFields.controller.UploadFields"
+	displayBlock="true">
+	<App>
+		<pages>
+			<Page title="Manage Fields">
+				<content>
+					<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter text="Single Field Update">
+								<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Field Details" labelSpanXL="3" labelSpanL="3"
+									labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+									columnsL="1" columnsM="1" singleContainerFullSize="false">
+									<f:content>
+										<Label text="Name"/>
+										<Input value="{ui>/Name}"/>
+										<Label text="ControlType"/>
+										<Select selectedKey="{ui>/ControlType}" forceSelection="false">
+											<c:Item key="OpenText" text="OpenText"></c:Item>
+											<c:Item key="DerivedText" text="DerivedText"></c:Item>
+											<c:Item key="ValueHelpText" text="ValueHelpText"></c:Item>
+										</Select>
+										
+										<Label text="Field Key"/>
+										<Input value="{ui>/FieldKey}">
+				
+										</Input>
+										
+									</f:content>
+								</f:SimpleForm>
+							</IconTabFilter>
+							<IconTabFilter text="Bulk Upload">
+								<f:SimpleForm editable="true" layout="ResponsiveGridLayout" id="__form0">
+									<f:content>
+										<c:Title text="Upload Fields" id="__title0"/>
+										<Label text="File" id="__label0"/>
+										<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" uploadStart="handleUploadStart" width="400px"
+											tooltip="Upload your file to the local server" uploadComplete="handleUploadComplete"/>
+										<Label/>
+										<Button width="16rem" text="Upload File" press="handleUploadPress"/>
+									</f:content>
+								</f:SimpleForm>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<footer>
+					<Bar>
+						<contentRight>
+							<Button text="Save" press="onSave" type="Emphasized"/>
+							<Button text="Cancel" press="onCancel" type="Emphasized"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
